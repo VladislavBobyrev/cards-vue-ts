@@ -1,0 +1,22 @@
+@mixin electro-card($num, $top, $left, $widht, $height, $to, $bg, $translate0, $translate100, $delay: 0s) {
+  span:nth-child(#{$num}) {
+    position: absolute;
+    top: $top;
+    left: $left;
+    width: $widht;
+    height: $height;
+    background: linear-gradient(to #{$to}, transparent, #{$bg-accent});
+    animation: electro#{$num} 2s ease-in-out infinite;
+    animation-delay: $delay;
+    animation-direction:alternate;
+    opacity: .8;
+  }
+  @keyframes electro#{$num} {
+    0% {
+      transform: $translate0;
+    }
+    100% {
+      transform: $translate100;
+    }
+  }
+}
