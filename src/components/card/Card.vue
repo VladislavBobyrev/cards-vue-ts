@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, computed, ComputedRef } from 'vue'
 import { useStore } from 'vuex'
 
 interface Requests {
@@ -34,8 +34,8 @@ export default defineComponent({
     const store = useStore()
     
     store.dispatch('asyncLoad')
-    const data  = store.state.requests
-    console.log(data);
+    const request  = store.state.requests
+    const data  = computed(() => request > 0 ? request: store.state.requests)
 
     return{
       data
@@ -44,5 +44,3 @@ export default defineComponent({
 
 })
 </script>
-
-
