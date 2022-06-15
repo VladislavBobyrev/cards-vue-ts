@@ -34,11 +34,14 @@ export default defineComponent({
     const store = useStore()
     
     store.dispatch('asyncLoad')
-    const request  = store.state.requests
-    const data  = computed(() => request > 0 ? request: store.state.requests)
+    // const request  = store.state.requests
+    // const data  = computed(() => request > 0 ? request: store.state.requests)
+    const pageItems = store.state.pageItems
+    const data = computed(() => pageItems > 0 ? pageItems : store.state.pageItems)
+
 
     return{
-      data
+      data,
     } 
   },
 

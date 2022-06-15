@@ -1,8 +1,18 @@
-main{
-  position: relative; 
+main {
+  display: flex;
+  position: relative;
   overflow: auto;
+  flex-direction: column;
 }
 
-ul{
+ul {
   height: 100%;
+}
+
+.btn-pagination{
+  background: #2ecf1b;
+  margin: 2rem;
+  padding: 2rem;
+  font-size: 2rem;
+  text-transform: uppercase;
 }

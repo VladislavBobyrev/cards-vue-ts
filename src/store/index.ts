@@ -10,7 +10,9 @@ interface Requests {
 export default createStore({
   state() {
     return {
-      requests: []
+      requests: [],
+      conutPage: 1,
+      pageItems: []
     }
   },
   mutations: {
@@ -18,6 +20,9 @@ export default createStore({
     {
       state.requests = requests
     },
+    getNextPage(state: any) {
+      state.pageItems = state.requests.slice(0, state.requests.length  / 10 * state.conutPage) 
+    }
   },
 
   actions: {
@@ -27,6 +32,7 @@ export default createStore({
           .then(data => data.json())
         
         commit('setRequests', data);
+        commit('getNextPage');
       } catch(e) {}
     },
   },
